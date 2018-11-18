@@ -18,4 +18,4 @@ RUN gem install github-markdown
 RUN gem install gollum
 RUN gem install org-ruby  # optional
 WORKDIR /wiki
-ENTRYPOINT ["gollum", "--port", "80", "--config", "/config.rb"]
+#ENTRYPOINT ["gollum", "--port", "80", "--config", "/config.rb"]

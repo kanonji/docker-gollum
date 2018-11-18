@@ -5,14 +5,15 @@ services:
       build: ./ruby
       restart: unless-stopped
       ports:
-        - 32080:80
+        - "${WEB_PORT}:80"
       links:
         - plantuml
       volumes:
         - ./gollum-data:/wiki
         - ./ruby/config.rb:/config.rb:ro
+      command: "gollum --port 80 --plantuml-url ${PLANTUML_URL_BASE} --config /config.rb"
     plantuml:
       image: plantuml/plantuml-server:jetty
       restart: unless-stopped
       ports:
-        - 32880:8080
+        - "${PLANTUML_PORT}:8080"
