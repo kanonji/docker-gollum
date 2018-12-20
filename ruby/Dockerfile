@@ -14,6 +14,7 @@
 FROM ruby:2.5.1-stretch
 RUN apt-get -y update && apt-get -y install libicu-dev cmake && rm -rf /var/lib/apt/lists/*
 RUN gem install github-linguist
+RUN gem install github-markdown
 RUN gem install gollum
 RUN gem install org-ruby  # optional
 WORKDIR /wiki
